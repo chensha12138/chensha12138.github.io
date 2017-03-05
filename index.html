@@ -273,7 +273,7 @@
               
                 
                 <a class="post-title-link" href="/title" itemprop="url">
-                  Hexo博客搭建记录（一）
+                  Hexo博客搭建记录（二）
                 </a>
               
             
@@ -289,8 +289,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-04T22:49:16+08:00">
-                2017-03-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-05T15:53:39+08:00">
+                2017-03-05
               </time>
             
 
@@ -299,28 +299,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -349,49 +327,34 @@
       
         
           
-            <p> <strong>1. 基础准备</strong></p>
-<ol>
-<li>安装node</li>
-<li>安装github（主要命令工具）</li>
-<li>申请github账号</li>
-<li>安装代码编译工具<br>我选的是Visual Studio Code，反正选一个工具安装，为了后面编辑config.yml文件使用。</li>
-</ol>
-<hr>
-<p><strong>2.安装hexo</strong></p>
-<ol>
-<li>建立文件夹<br>在自己喜欢的位置新建一个文件夹作为整个博客的主文件夹，如：Blog。在<strong>该文件夹内</strong>右击鼠标，Git Bash here,打开Git</li>
-<li>初始化hexo</li>
-</ol>
-<pre><code>&gt;hexo init
-</code></pre><ol>
-<li>安装插件</li>
-</ol>
-<pre><code>&gt;npm install
-</code></pre><ol>
-<li>启动本地服务器</li>
-</ol>
-<pre><code>&gt;hexo s
-</code></pre><p>浏览器输入地址<strong>localhost:4000</strong>即可打开博客页面，至此安装就完成。<br>如果浏览器一直打不开，用代码</p>
-<pre><code>&gt;hexo server -p 5000
-</code></pre><p>将端口4000改为5000，然后打开<strong>localhost:5000</strong>即可打开（如果你的电脑上装了福昕阅读器，没错，打不开就是它的原因！）</p>
-<hr>
-<p><strong>3.配置Git</strong></p>
-<ol>
-<li>建立Repository<br>打开Github网站，Star a project。用语言编辑软件打开Bolg文件夹下_config.yml文件，翻到最下面，修改为(<strong>注意空格</strong>)：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">type: git</div><div class="line">repository: https://github.com/username/username.github.io.git</div><div class="line">branch: master</div></pre></td></tr></table></figure>
-<p>hexo3.0版本更新之后将<strong>github.com.git</strong>改为了<strong>github.io.git</strong>。</p>
-<p> 2.部署npm</p>
-<pre><code>&gt;npm install hexo-deployer-git --save
-&gt;hexo d
-</code></pre><p>然后再在浏览器地址栏中输入<a href="https://username.github.io" target="_blank" rel="external">https://username.github.io</a> 就可以打开你的博客。</p>
-<p>以后每次部署的步骤：</p>
-<pre><code>&gt;hexo clean
-&gt;hexo g
-&gt;hexo d
-</code></pre><hr>
-<p><strong>4.感慨</strong></p>
-<p>博主没有配置ssh文件，因为网上教程很多。写这篇博客主要是因为网上有很多版本的搭建教程，但是博主遇到的问题都有没有涉及到，所以写一些东西以供参考。</p>
+            <h1 id="Hexo博客搭建记录（二）"><a href="#Hexo博客搭建记录（二）" class="headerlink" title="Hexo博客搭建记录（二）"></a>Hexo博客搭建记录（二）</h1><hr>
+<p> <strong>1.主题更换</strong></p>
+<p> 1.在官网上自己选择自己喜欢的主题，打开后按照里面的教程完成，本篇以next主题为例，主题较为简洁，适合新手选择。<br> 2.启动Git，输入命令：</p>
+<blockquote>
+<p>git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a> themes/next</p>
+</blockquote>
+<p>  等待下载完成。<br> 3.启用next文件<br>  打开主目录下站点配置文件_config.yml，将<strong>theme：</strong> 值改为 <strong>next</strong>。依次输入命令：</p>
+<blockquote>
+<p>npm install hexo-renderer-jade –save<br>npm install hexo-renderer-sass –save</p>
+</blockquote>
+<p> 4.本地预览</p>
+<blockquote>
+<p>hexo clean<br>hexo g<br>hexo s –debug</p>
+</blockquote>
+<p>打开localhost:4000查看效果，满意后部署到Git上。</p>
+<blockquote>
+<p>hexo clean<br>hexo g<br>hexo d</p>
+</blockquote>
+<h2 id="最后一步可能由于网络原因失败，多试几次吧（可能是博主的运气不好）。"><a href="#最后一步可能由于网络原因失败，多试几次吧（可能是博主的运气不好）。" class="headerlink" title="最后一步可能由于网络原因失败，多试几次吧（可能是博主的运气不好）。"></a>最后一步可能由于网络原因失败，多试几次吧（可能是博主的运气不好）。</h2><p>2.<strong>写博客与上传</strong></p>
+<p> 1.写博客<br>  1.1新手可以用作业部落 <a href="https://www.zybuluo.com" target="_blank" rel="external">https://www.zybuluo.com</a> 所见即所得，写完之后直接下载，拷贝到<strong>Blog&gt;source&gt;_posts&gt;blog’ name</strong>。<br>  1.2用git</p>
+<blockquote>
+<p>hexo n “blog’ name”</p>
+</blockquote>
+<p>  用代码编辑器即可打开<strong>Blog&gt;source&gt;_posts&gt;blog’ name</strong>即可。<br> 2.上传<br> 打开Git</p>
+<blockquote>
+<p>hexo clean<br>hexo g<br>hexo s</p>
+</blockquote>
+<p> 打开<strong>localhost:4000</strong>检查无误后，更新到个人的Git上去。</p>
 
           
         
@@ -455,7 +418,7 @@
               
                 
                 <a class="post-title-link" href="/title" itemprop="url">
-                  Hello World
+                  Hexo博客搭建记录（一）
                 </a>
               
             
@@ -471,8 +434,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-04T11:48:44+08:00">
-                2017-03-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-05T15:49:51+08:00">
+                2017-03-05
               </time>
             
 
@@ -509,15 +472,57 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <h1 id="Hexo博客搭建记录（一）"><a href="#Hexo博客搭建记录（一）" class="headerlink" title="Hexo博客搭建记录（一）"></a>Hexo博客搭建记录（一）</h1><hr>
+<p> <strong>1. 基础准备</strong></p>
+<ol>
+<li>安装node</li>
+<li>安装github（主要命令工具）</li>
+<li>申请github账号</li>
+<li>安装代码编译工具<br>我选的是Visual Studio Code，反正选一个工具安装，为了后面编辑config.yml文件使用。</li>
+</ol>
+<hr>
+<p><strong>2.安装hexo</strong></p>
+<ol>
+<li>建立文件夹<br>在自己喜欢的位置新建一个文件夹作为整个博客的主文件夹，如：Blog。在<strong>该文件夹内</strong>右击鼠标，Git Bash here,打开Git</li>
+<li>初始化hexo</li>
+</ol>
+<pre><code>&gt;hexo init
+</code></pre><ol>
+<li>安装插件</li>
+</ol>
+<blockquote>
+<p>npm install</p>
+</blockquote>
+<ol>
+<li>启动本地服务器</li>
+</ol>
+<blockquote>
+<p>hexo s</p>
+</blockquote>
+<p>浏览器输入地址<strong>localhost:4000</strong>即可打开博客页面，至此安装就完成。<br>如果浏览器一直打不开，用代码</p>
+<blockquote>
+<p>hexo server -p 5000</p>
+</blockquote>
+<p>将端口4000改为5000，然后打开<strong>localhost:5000</strong>即可打开（如果你的电脑上装了福昕阅读器，没错，打不开就是它的原因！）</p>
+<hr>
+<p><strong>3.配置Git</strong></p>
+<ol>
+<li>建立Repository<br>打开Github网站，Star a project。用语言编辑软件打开Bolg文件夹下_config.yml文件，翻到最下面，修改为(<strong>注意空格</strong>)：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">type: git</div><div class="line">repository: https://github.com/username/username.github.io.git</div><div class="line">branch: master</div></pre></td></tr></table></figure>
+<p>hexo3.0版本更新之后将<strong>github.com.git</strong>改为了<strong>github.io.git</strong>。</p>
+<p> 2.部署npm</p>
+<blockquote>
+<p>npm install hexo-deployer-git –save<br>hexo d</p>
+</blockquote>
+<p>然后再在浏览器地址栏中输入<a href="https://username.github.io" target="_blank" rel="external">https://username.github.io</a> 就可以打开你的博客。</p>
+<p>以后每次部署的步骤：</p>
+<blockquote>
+<p>hexo clean<br>hexo g<br>hexo d</p>
+</blockquote>
+<hr>
+<p><strong>4.感慨</strong></p>
+<p>博主没有配置ssh文件，因为网上教程很多。写这篇博客主要是因为网上有很多版本的搭建教程，但是博主遇到的问题都有没有涉及到，所以写一些东西以供参考。</p>
 
           
         
@@ -600,15 +605,6 @@
             </div>
           
 
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Kategorien</span>
-              
-            </div>
           
 
           
